@@ -1,0 +1,18 @@
+//Creacion de tablas 
+
+CREATE TABLE `cliente`(
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`nombre` VARCHAR(25) DEFAULT NULL,
+    	`apellido` VARCHAR(50) DEFAULT NULL,
+ 	`direccion` VARCHAR(128) DEFAULT NULL,
+	PRIMARY KEY(`id`)) ENGINE=INNODB
+
+CREATE TABLE `detalle_clientes`(
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`web` VARCHAR(50) DEFAULT NULL,
+    	`telefono` VARCHAR(20) DEFAULT NULL,
+ 	`comentarios` VARCHAR(128) DEFAULT NULL,
+	PRIMARY KEY(`id`)) ENGINE=INNODB
+
+//Crear realacion entre tablas
+ALTER TABLE `cliente` ADD CONSTRAINT `FK_detalles` FOREIGN KEY (`id`) REFERENCES `detalle_clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
