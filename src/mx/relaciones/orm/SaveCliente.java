@@ -13,6 +13,7 @@ public class SaveCliente {
 				.configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Cliente.class)
 				.addAnnotatedClass(DetalleClientes.class)
+				.addAnnotatedClass(Pedido.class)
 				.buildSessionFactory();
 		
 		//Creacion de obj de tipo Session
@@ -23,8 +24,8 @@ public class SaveCliente {
 //Insertar registro en Tabla cliente
 
 			//Crear obj cliente y detalleClientes
-			Cliente myCustomer = new Cliente("Paco","Gomez","Main Street #2");
-			DetalleClientes details = new DetalleClientes("www.GomezPanaderia.com","7215486532","VIP.");
+			Cliente myCustomer = new Cliente("Ultra","Lord","Boulevard Street #258");
+			DetalleClientes details = new DetalleClientes("www.UltraBoulevard.com","7226594871","Normal");
 			
 			//Asociar Objetos
 			myCustomer.setDetalles(details);
