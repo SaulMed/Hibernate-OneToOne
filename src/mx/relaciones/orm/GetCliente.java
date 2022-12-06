@@ -7,8 +7,12 @@ import org.hibernate.cfg.Configuration;
 public class GetCliente {
 	public static void main(String[] args) {
 
-		SessionFactory myFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Cliente.class)
-				.addAnnotatedClass(DetalleClientes.class).buildSessionFactory();
+		SessionFactory myFactory = new Configuration()
+				.configure("hibernate.cfg.xml")
+				.addAnnotatedClass(Cliente.class)
+				.addAnnotatedClass(DetalleClientes.class)
+				.addAnnotatedClass(Pedido.class)
+				.buildSessionFactory();
 
 		Session mySession = myFactory.openSession();
 
@@ -18,7 +22,7 @@ public class GetCliente {
 
 			// Establecer detalle clientes a obtener
 			// Cliente clienteToGet = mySession.get(Cliente.class, 1);
-			DetalleClientes detallesToGet = mySession.get(DetalleClientes.class, 3);
+			DetalleClientes detallesToGet = mySession.get(DetalleClientes.class, 4);
 			
 			System.out.println(detallesToGet);
 			
